@@ -4,7 +4,11 @@ go 1.13
 
 require (
 	cloud.google.com/go v0.46.3 // indirect
+	github.com/PuerkitoBio/goquery v1.5.0
 	github.com/hashicorp/golang-lru v0.5.3 // indirect
+	github.com/mmcdole/gofeed v1.0.0-beta2
+	github.com/mmcdole/goxpp v0.0.0-20181012175147-0068e33feabf // indirect
+	github.com/rs/zerolog v1.15.0
 	go.opencensus.io v0.22.1 // indirect
 	golang.org/x/net v0.0.0-20190921015927-1a5e07d1ff72 // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45

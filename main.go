@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 
@@ -23,7 +24,10 @@ func main() {
 		log.Fatalf("Unable to retrieve Calendar client: %v", err)
 	}
 
-	events := events.BuildEvents()
+	events, err := events.BuildEvents(context.Background())
+	if err != nil {
+		log.Fatalf("events: build events: %q", err)
+	}
 
 	for _, event := range events {
 		event, err = srv.Events.Insert(calendarID, event).Do()

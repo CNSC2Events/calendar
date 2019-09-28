@@ -6,7 +6,7 @@ workspace:
   path: /src/github.com/CNSC2Events/calendar
 
 steps:
-- name: "testing"
+# - name: "testing"
 # TODO
 - name: "build"
   image: golang:1.13

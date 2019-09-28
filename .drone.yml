@@ -1,0 +1,18 @@
+name: calendar
+kind: pipeline
+
+workspace:
+  base: /project
+  path: /src/github.com/CNSC2Events/calendar
+
+steps:
+- name: "testing & coverage"
+# TODO
+- name: "publish_google_calendar"
+  image: golang:1.13
+  environment:
+    GoogleCred:
+      from_secret: Google_CALENDAR_API_KEY
+  commands:
+  - echo $GoogleCred > resource/credential.json
+  - go run main.go

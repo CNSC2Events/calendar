@@ -6,13 +6,10 @@ workspace:
   path: /src/github.com/CNSC2Events/calendar
 
 steps:
-- name: "testing & coverage"
+- name: "testing"
 # TODO
-- name: "publish_google_calendar"
+- name: "build"
   image: golang:1.13
-  environment:
-    GoogleCred:
-      from_secret: Google_CALENDAR_API_KEY
   commands:
-  - echo $GoogleCred > resource/credential.json
-  - go run main.go
+  - go build -o calendar main.go
+  - rm main.go

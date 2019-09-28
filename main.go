@@ -2,17 +2,16 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"log"
 
 	"github.com/CNSC2Events/calendar/internal/config"
 	"github.com/CNSC2Events/calendar/internal/events"
+	"github.com/rs/zerolog/log"
 
 	"google.golang.org/api/calendar/v3"
 )
 
 const (
-	calendarID = "SC2Events"
+	calendarID = "7c53nhviepue76ih29n72bmvjo@group.calendar.google.com"
 )
 
 func main() {
@@ -21,19 +20,22 @@ func main() {
 
 	srv, err := calendar.New(client)
 	if err != nil {
-		log.Fatalf("Unable to retrieve Calendar client: %v", err)
+		log.Error().Msgf("Unable to retrieve Calendar client: %v", err)
+		return
 	}
 
 	events, err := events.BuildEvents(context.Background())
 	if err != nil {
-		log.Fatalf("events: build events: %q", err)
+		log.Error().Msgf("events: build events: %q", err)
+		return
 	}
 
 	for _, event := range events {
 		event, err = srv.Events.Insert(calendarID, event).Do()
 		if err != nil {
-			log.Fatalf("Unable to create event. %v\n", err)
+			log.Error().Msgf("Unable to create event. %v\n", err)
+			return
 		}
-		fmt.Printf("Event created: %s\n", event.HtmlLink)
+		log.Debug().Msgf("create event: id: %s, summary", event.Id, event.Summary)
 	}
 }

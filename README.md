@@ -1,5 +1,7 @@
 ## calendar
 
+[![Build Status](https://cloud.drone.io/api/badges/CNSC2Events/calendar/status.svg)](https://cloud.drone.io/CNSC2Events/calendar)
+
 The automated starcraft2 events GoogleCalendar.
 
 ## subscription

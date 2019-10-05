@@ -53,7 +53,7 @@ func (c *Client) CreateCalendar(ctx context.Context) error {
 		if err != nil {
 			return fmt.Errorf("gcal: unable to create event: %q\n", err)
 		}
-		log.Debug().Msgf("create event: id: %s, summary", event.Id, event.Summary)
+		log.Debug().Msgf("create event: id: %s, summary: %s", event.Id, event.Summary)
 	}
 
 	// sync events to stash

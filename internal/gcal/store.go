@@ -69,6 +69,11 @@ func isEventExist(_ context.Context, e *calendar.Event) (bool, error) {
 	if err := db.View(func(tx *bbolt.Tx) error {
 		b := tx.Bucket(bucket)
 
+		if b == nil {
+			// not set
+			return nil
+		}
+
 		j, err := e.MarshalJSON()
 		if err != nil {
 			return fmt.Errorf("marshal: %w", err)

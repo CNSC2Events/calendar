@@ -4,7 +4,7 @@ WORKDIR /builder
 
 ADD . /builder
 
-RUN go build -o calendar *.go
+RUN go build -o calendar /builder/.
 
 FROM alpine
 

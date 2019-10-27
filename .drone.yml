@@ -6,10 +6,13 @@ workspace:
   path: /src/github.com/CNSC2Events/calendar
 
 steps:
-# - name: "testing"
-# TODO
-- name: "build"
-  image: golang:1.13
-  commands:
-  - go build -o calendar main.go
-  - rm main.go
+- name: publish_dockerhub
+  image: plugins/docker
+  settings:
+    repo: scnace/calendar
+    auto_tag: true
+    username:
+        from_secret: DOCKERHUB_USER
+    password:
+        from_secret: DOCKERHUB_PASSWORD
+    dockerfile: Dockerfile

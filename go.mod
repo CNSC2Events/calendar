@@ -11,9 +11,8 @@ require (
 	github.com/stretchr/testify v1.8.1 // indirect
 	go.etcd.io/bbolt v1.3.3
 	go.opencensus.io v0.22.1 // indirect
-	golang.org/x/net v0.0.0-20190921015927-1a5e07d1ff72 // indirect
+	golang.org/x/net v0.7.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
-	golang.org/x/sys v0.1.0 // indirect
 	google.golang.org/api v0.10.0
 	google.golang.org/appengine v1.6.3 // indirect
 	google.golang.org/genproto v0.0.0-20190916214212-f660b8655731 // indirect
